@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Slow Jobs Requests</h1>
+
+<table class="table table-hover table-stripped">
+  <thead>
+    <tr>
+      <th>Job Id</th>
+      <th>Requested time</th>
+      <th>Returned at</th>
+      <th>Time Taken</th>
+      <th>Description</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @slow_jobs.each do |slow_job| %>
+      <tr>
+        <td><%= slow_job.name %></td>
+        <td><%= slow_job.requested_time %></td>
+        <td><%= slow_job.returned_at %></td>
+        <td><%= slow_job.time_taken %></td>
+        <td><%= slow_job.description %></td>
+        <td><%= link_to 'Destroy', slow_job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Check Delayed job Status', delayed_job_path, target: :_blank, class: "btn btn-primary" %>

@@ -1,0 +1,33 @@
+<%= form_for(@slow_job) do |f| %>
+  <% if @slow_job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@slow_job.errors.count, "error") %> prohibited this slow_job from being saved:</h2>
+
+      <ul>
+      <% @slow_job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :requested_time %><br>
+    <%= f.number_field :requested_time %>
+  </div>
+  <div class="field">
+    <%= f.label :returned_at %><br>
+    <%= f.number_field :returned_at %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

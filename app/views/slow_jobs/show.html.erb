@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @slow_job.name %>
+</p>
+
+<p>
+  <strong>Requested time:</strong>
+  <%= @slow_job.requested_time %>
+</p>
+
+<p>
+  <strong>Returned at:</strong>
+  <%= @slow_job.returned_at %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @slow_job.description %>
+</p>
+
+<%= link_to 'Edit', edit_slow_job_path(@slow_job) %> |
+<%= link_to 'Back', slow_jobs_path %>
